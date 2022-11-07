@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <div>
-      <h1 className="text-red-500">hello world</h1>
+      <h1 className="text-red-500">HELLO FROM DATABASE: {databaseItems}</h1>
     </div>
   );
 }
