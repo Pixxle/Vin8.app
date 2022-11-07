@@ -1,0 +1,24 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+enum LinkTypes {
+  URL
+  BIN
+}
+
+model Link {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  original_data String    @db.VarChar(1000)
+  reference_url String    @unique @db.VarChar(100)
+  link_type     LinkTypes
+}
