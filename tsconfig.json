@@ -32,5 +32,10 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "paths": {
+    "@/styles": ["src/styles/*"],
+    "@/components": ["src/app/components/*"],
+    "@/api": ["src/app/api/*"],
+  }
 }
