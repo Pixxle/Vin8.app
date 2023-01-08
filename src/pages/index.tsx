@@ -1,6 +1,17 @@
 import type { NextPage } from "next";
+import { FormEvent } from "react";
+import { UrlEventType } from "../lib/UrlEventType";
 
 const Index: NextPage = () => {
+  const handleSubmit = async (event : FormEvent<HTMLFormElement> & {target: UrlEventType}) => {
+    event.preventDefault();
+    const {target} = event;
+
+    const data = {
+      url : target?.url_textbox?.value
+    }
+    console.log(data);
+  }
   return (
     <div className="w-screen h-screen flex justify-center items-center">
       <div
@@ -13,16 +24,15 @@ const Index: NextPage = () => {
         w-96
         col-start-2 col-end-5
         ">VIN8</h1>
+        <form onSubmit={handleSubmit}>
+          <input id="url_textbox" 
+          className="bg-green-500 col-start-2 col-end-4"
+          contentEditable={true}
+          />
 
-        <input className="bg-green-500
-        col-start-2 col-end-4
-        "
-        contentEditable={true}
-        />
-
-        <button className="bg-yellow-500" 
-        >test</button>
-
+          <button id="url_btn" type="submit" className="bg-yellow-500" 
+          >test</button>
+        </form>
       </div>
     </div>
   );
