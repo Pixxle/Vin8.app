@@ -16,7 +16,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent){
 
     const data = await referenceFetch.json() as LinkResponse;
 
-    if (data?.link_type === "BIN" && data?.original_data){
+    if (data?.link_type === "URL" && data?.original_data){
         return NextResponse.redirect(data.original_data);
     }
 };
